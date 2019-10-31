@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <ul>
+    {% for produto in product %}
+            <img src="{{produto.foto.url}}"  class="img-responsive" height="200" width="200" >
+            <p>Descrição: {{produto.descricao}} </p>
+            <p>Preço:    {{produto.preco}} </p>
+            <p>Categoria:    {{produto.categoria}} </p>
+            <p>Produtor:    {{produto.user}} </p>
+
+
+        <a href="{% url 'movimentacao' produto.id %}"> Comprar </a>
+        {% endfor %}
+
+    </ul>
+</div>
+</center>
+
+<a href="{% url 'lista'%}"> Voltar </a><br>
+
+</body>
+</html>

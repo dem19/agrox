@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<a href="{% url 'lista' %}"> Voltar</a>
+<p></p>
+{% block content %}
+{% if user.is_authenticated %}
+<a href="{% url 'logout'%}"> Sair</a>
+{% else %}
+<a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
+
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'meus_produto' %}"  {% else %} href="{% url 'login' %}" {% endif %}> Meus Produtos</a>
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'alterar_dados' %}"  {% else %} href="{% url 'login' %}" {% endif %}> Alterar dados</a>
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'minhas_compras' %}"  {% else %} href="{% url 'login' %}" {% endif %}> Minhas compras</a>
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'minhas_vendas' %}"  {% else %} href="{% url 'login' %}" {% endif %}> Minhas vendas</a>
+
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'alterar_senha' %}"  {% else %} href="{% url 'login' %}" {% endif %}> Alterar senha</a>
+
+<p></p><a {% if user.is_authenticated %} href="{% url 'deletar_user' %}"  {% else %} href="{% url 'deletar_user' %}" {% endif %}> Excluir Conta</a>
+
+<p></p><a  href="{% url 'sobre' %}" > Sobre</a>
+
+
+
+</body>
+</html>

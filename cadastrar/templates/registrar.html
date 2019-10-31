@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+<center>
+<TABLE BORDER=10 WIDTH="100" bgcolor="">
+        <TR>
+<TD ALIGN="justify">
+
+<center><h3> Registre-se</h3> </center>
+<div class="container">
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ form_user.as_p }}
+            <input type='submit' value='Registrar' />
+        </form>
+
+</div> <!-- /container -->
+   </TD>
+        </TR>
+</TABLE>
+    </center>
+</body>
+</html>

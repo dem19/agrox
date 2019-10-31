@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Document</title>
+</head>
+<body>
+<a href="{% url 'menu' %}"> Voltar</a>
+
+{% if messages %}
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <ul class="messages">
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-success" {% endif %}>{{ message}}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+<h4>Meus produtos:</h4>
+    <ul>
+        {% for produto in product %}
+         <li>
+                            <img src="{{produto.foto.url}}" class="img-responsive" height="200" width="200"/><br>
+
+                            <li>  <a href="{% url 'alterar_produtos' produto.id %}"> Alterar produto </a>
+                            <a href="{% url 'mostrar_produto' produto.id %}"> {{ produto.descricao }} - {{produto.preco}} </a>
+                            <a href="{% url 'deletar_produtos' produto.id %}"> Deletar</a>
+                            <a href="{% url 'pausar' produto.id %}"> Pausar</a>
+</li>
+
+            {% endfor %}
+
+         <a {% if user.is_authenticated %} href="{% url 'novo_produto'  %}"  {% else %} href="{% url 'login' %}" {% endif %}> Novo produto</a><br>
+
+
+   </ul>
+</body>
+</html>

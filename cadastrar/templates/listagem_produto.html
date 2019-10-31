@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>Sistema Agropecuaria</title>
+</head>
+<body>
+
+{% if messages %}
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <ul class="messages">
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-success" {% endif %}>{{ message}}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+<center>
+    <TABLE BORDER=5 WIDTH="400" bgcolor="">
+        <TR>
+            <TD ALIGN="CENTER">
+                <div align="center">
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form-inline">
+                                <div class="form-group mb-2">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="text" class="form-control" id="pesquisa" name="pesquisa"
+                                           placeholder="Digite sua busca">
+                                    <button type="submit" class="btn btn-primary mb-2"> pesquisa</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    {% if user.is_authenticated %}
+                      bem-vindo {{ user.username }}!
+                    {% endif %}
+                    <a href="{% url 'menu' %}"> Menu</a>
+
+                    <h4>Listagem dos produtos</h4>
+                    <ul>
+                        {% for produto in product %}
+
+                            <img src="{{produto.foto.url}}" class="img-responsive" height="200" width="200"/><br>
+                            <a href="{% url 'mostrar_produto'  produto.id %}"> {{ produto.descricao }} <p> R$ {{produto.preco}} </p> </a>
+
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </TD>
+        </TR>
+    </TABLE>
+
+</center>
+
+
+</body>
+
+</html>

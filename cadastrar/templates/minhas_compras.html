@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Minhas compras</title>
+</head>
+<body>
+<a href="{% url 'menu' %}">Voltar</a>
+
+  <ul>
+      <h4> Minhas compras realizadas</h4>
+
+      {%  if product %}
+                        {% for produto in product %}
+                            <p>Produto: {{produto.descricao}} </p>
+                            <p>Preço:  {{produto.preco}} </p>
+                            <p>Vendedor:  {{produto.vendedor}} </p>
+                            <p>Celular:  {{produto.celular}} </p>
+                            <p>Enderenço:  {{produto.endereco}} </p>
+                            <p>Cidade:  {{produto.cidade}} </p>
+                            <p>UF:  {{produto.uf}} </p>
+                            <p>Email:  {{produto.email}} </p>
+
+                        {% endfor %}
+
+      {% else %}
+
+        <p> Não há compras realizadas por você</p>
+
+     {% endif %}
+                    </ul>
+</body>
+</html>
