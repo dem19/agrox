@@ -15,7 +15,7 @@ lxml==4.3.3
 Markdown==3.1
 Pillow==6.0.0
 psycopg2==2.7.7
-Pygments==2.4.0
+Pygments==2.7.4
 pyquery==1.4.0
 python-dateutil==1.5
 python-decouple==3.1
